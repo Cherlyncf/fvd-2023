@@ -1,0 +1,234 @@
+/*********/
+/* FONTS */
+/*********/
+/* Met @font-face kunnen aangepaste lettertypen op een webpagina worden geladen */
+@font-face {
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 900;
+	font-stretch: 125%;
+	src: url(https://fonts.gstatic.com/s/archivo/v18/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q8EsJaRE-NWIDdgffTTnTRZ-BdpBU7iVNRQGG4.woff2) format('woff2');
+	unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/**************/
+/* CSS REMEDY */
+/**************/
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+button:not(:disabled), summary {
+	cursor: pointer;
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	--color-text:#ffffff;
+	--color-text-vullen:#1c468d;
+	--color-text-line1:#1c468d;
+	--color-text-line2: #94d1eb;
+
+	--color-background: #1c468d;
+	/*light mode*/
+
+	--color-background-dark: #030334;
+	/*dark mode*/
+
+	--color-milk: #ffffff;
+	--background-milk-glass: #2c5498;
+}
+
+/****************/
+/* STYLING */
+/****************/
+
+/* code van: https://codepen.io/shooft/pen/rNqmqga */
+body {
+	height:70vh;
+  	margin: 0;
+	
+	/* OREO staat in het midden van de pagina */
+	display:grid;
+	place-content: center ;
+	background: var(--color-background);
+}
+
+/********************/
+/* Letters STYLING */
+/******************/
+h1 {
+	display: flex;	
+	flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+	align-items: center;
+
+	gap: .15em;
+
+	font-family: 'Archivo', sans-serif;
+	font-size: 3.8em;
+}
+
+h1 span {
+	position: relative;
+	
+	color: var(--color-text);
+
+	/* om het gaatje van de O's te vullen*/
+	background-image:radial-gradient(circle, var(--color-text-vullen) .25em, transparent 0);
+}
+
+/* voor de donkere rand */
+h1 span::after {
+	/* de letter die in de html staat wordt gebruikt als letter voor de before en after */
+	content:attr(letter);
+ 	/* de after staat op dezelfde plek als de span waar hij inzit	*/
+	position:absolute;
+	left:0;
+	top:0;
+	/* om de outline te trekken*/
+	-webkit-text-stroke: 0.2em var(--color-text-line1); 
+	/* om de after achter de span waar hij inzit te plaatsen */
+	/* zo is allen de stroke naar buiten zichtbaar */
+	/* de stroke naar binnen wordt afgedekt door de span zelf*/
+	z-index:-1;
+}
+
+/* voor de lichte rand */
+h1 span::before {
+	content:attr(letter);
+	position:absolute;
+	left:0;
+	top:0;
+	-webkit-text-stroke: 0.3em var(--color-text-line2); 
+	z-index:-2;
+}
+
+h1:hover span {
+	animation-name: dip;
+	animation-duration: 7s;
+	animation-direction:normal;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out
+}
+
+/* Animatie per letter*/
+h1:hover span:nth-of-type(1) {
+	animation-delay: .5s;
+}
+
+h1:hover span:nth-of-type(2) {
+	animation-delay: 1s;
+}
+
+h1:hover span:nth-of-type(3) {
+	animation-delay: 1.5s;
+}
+
+h1:hover span:nth-of-type(4) {
+	animation-delay: 2s;
+}
+
+/*Zodat het glas niet mee beweegt*/
+h1:hover span:nth-of-type(5) {
+	animation: none;
+}
+
+@keyframes dip {
+	0% {
+		transform:translatey(0);
+	}
+	25% {
+		transform:translatey(1.2em);
+	}
+	50% {
+		transform:translatey(1.2em);
+	}
+	75% {
+		transform:translatey(1.2em);
+	}
+	100% {
+		transform:translatey(0em);
+	}
+}
+
+/**********************/
+/* Glas melk STYLING */
+/********************/
+/* styling van het glas zelf*/
+
+/* Gedeeltelijke code van: https://codepen.io/Spate/pen/gOGJMgG */
+h1 span:nth-of-type(5){
+
+	margin-top: .1em;
+	width: 4.8em;
+	height: 3em;
+ 
+	clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* styling van de melk*/
+h1 span:nth-of-type(5)::before {
+	content: "";
+	width: 150%;
+	height: 100%;
+	background: var(--background-milk-glass);
+
+	position: absolute;
+	top: 5%;
+	left: -25%;
+
+	background-color: var(--color-milk);
+	clip-path: polygon(0 5%, 9% 13%, 36% 19%, 62% 19%, 85% 15%, 100% 4%, 93% 66%, 87% 100%, 15% 100%, 10% 67%);
+
+	animation-name: milk;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes milk {
+	0% {
+	  transform: rotate(0deg);
+	}
+	50% {
+	  transform: rotate(7deg);
+	}
+	100% {
+	  transform: rotate(0deg);
+	}
+  }	
+
+@media (prefers-color-scheme:dark) {
+	body {
+		height:100vh;
+		margin: 0;
+	
+		/* OREO staat in het midden van de pagina */
+		display:grid;
+		place-content:center;
+		background: var(--color-background-dark);
+	}
+}
+
+/* Mediaquery voor responsivenes*/
+@media screen and (min-width: 501px) {
+	body {
+		height:70vh;
+	}
+	h1 {
+		font-size:3.8em;
+	}
+	h1 span {
+		top: .3em;
+		right: -2.4em;
+	}
+	h1 span:nth-of-type(5) {
+		top: 2.5em;
+		right:2.3em;
+	}
+}

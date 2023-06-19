@@ -1,0 +1,493 @@
+/* CSS Document */
+
+/*********/
+/* FONTS */
+/*********/
+@font-face {
+	font-family: 'eenfont';
+	src: url('../fonts/eenfont.woff2') format('woff2'),
+			 url('../fonts/eenfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+/**************/
+/* CSS REMEDY */
+/**************/
+*, *::after, *::before {
+	box-sizing:border-box;  
+	max-width: 100%;
+	margin: 0em;
+	padding: 0em;
+  }
+
+button:not(:disabled), summary {
+	cursor: pointer;
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	/* algemeen */
+	--color-text-h1:#fff;
+	--color-text:#000;
+	--color-background:#f2e8d9;
+
+	/* header kleur */
+	--color-background-header: #ECA4B1;
+
+	/* selecteren en sorteren background kleur */
+	--color-background-section1: #B7C8C2;
+
+	/* schaduw van de foto's  */
+	--color-box-shadow-img: rgba(0, 0, 0, 0.22);
+
+	--swiper-theme-color:#fff;
+
+	/* geen foto in lijst kleuren SVG */
+	--color-svg-1: #ffff;
+	--color-svg-2: #ECA4B1;
+	--color-svg-3: #ffff;
+
+	/* styling swiper button */
+	--color-swiper-button-hover: #D95F76;
+
+	/* states styling van de radio buttons */
+	--color-swiper-button-hover: #51718C;
+	--color-swiper-button-active: #ECA4B1;
+
+	--color-label-text: #fff;
+	--color-background-label: #ECA4B1;
+	--color-label-border: #ECA4B1;
+	--color-background-label-hover: #D95F76;
+	--color-label-border-hover:#D95F76;
+
+	--color-input-checked: #51718C;
+
+	--color-focus: #fff;
+
+	--color-background-active: #fff;
+	--color-active: #ECA4B1;
+
+
+
+}
+@media (prefers-color-scheme:dark) {
+	body {
+		--color-text-h1:#fff;
+		--color-text:#fff;
+		--color-background:#161426;
+
+		--color-background-header: #3A3873;
+
+		--color-background-section1: #034873;
+
+		--swiper-theme-color:#fff;
+
+		--color-svg-1: #ffff;
+		--color-svg-2: #000;
+		--color-svg-3: #ffff;
+
+		--color-swiper-button-hover: #034873;
+		--color-swiper-button-active: #7988D9;
+
+		--color-label-text: #fff;
+		--color-background-label: #7988D9;
+		--color-label-border: #7988D9;
+		--color-background-label-hover: #161426;
+		--color-label-border-hover: #161426;
+
+		--color-input-checked: #3A3873;
+
+		--color-focus: #fff;
+
+		--color-background-active: #fff;
+		--color-active: #3A3873;
+
+
+	}
+
+/*********************/
+/* algemene styling */
+/*******************/
+html {
+	height:100%;
+  
+}
+body {
+	/*min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;*/
+	
+  	font-family: eenfont, sans-serif;
+
+  	color:var(--color-text);
+  	background-color:var(--color-background);
+
+  	
+}
+header {
+	top: 0;
+	z-index: 100;
+
+	padding: 1em 1em;
+
+	background-color: var(--color-background-header);
+
+	text-align:center;
+}
+
+h1 {
+	text-align: center;
+
+	color:var(--color-text-h1);
+}
+section {
+	padding: 1em;
+}
+label {
+	margin-right: .5em;
+}
+img {
+	opacity: 1;
+}
+img:hover{
+	cursor: pointer;
+
+	background-color: rgba(150, 150, 150, 0.5);
+}
+/****************************/
+/* Section 1: carousel */
+/****************************/
+
+section:nth-of-type(1) {
+	display: flex;
+	justify-content: center;
+
+	width:100%;
+	margin:0 auto;
+	overflow: scroll;
+
+	padding: 1em 2em;
+}
+p {
+	font-size: 1.5em;
+}
+
+/* de lijst */
+  section:nth-of-type(1) ul {
+
+	height:100%;
+	margin: 2em 2em;
+	padding:0;
+	list-style:none;
+  }
+/* een foto */
+section:nth-of-type(1) li { 
+	height:100%;
+
+	/* !important is nodig omdat swiper.js display:block; aan de li toevoegt - en daardoor zou de lay-out van de kaart misgaan */
+	display:flex !important; 
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+section:nth-of-type(1) li img {
+	margin-bottom: 1em;
+
+	width:auto;
+	height:25em;
+	order:-1;
+
+	border-radius: 5%;
+}
+.swiper-button-prev,
+.swiper-button-next {
+	padding: 3em 4em 3em 2.3em;
+	margin: 0em 2em;
+
+    border: none;
+    border-radius: 30%;
+
+	font-weight: bold;
+    background: var(--color-background-label);
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+	transform: scale(1.1);
+
+	background: var(--color-swiper-button-hover);
+
+}
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+	border: .15em solid var(--color-focus);
+}
+.swiper-button-prev:active,
+.swiper-button-next:active {
+	color: var(--color-swiper-button-active);
+	background: var(--color-focus);
+}
+
+
+/****************************/
+/* Section 2: Toon in een */
+/****************************/
+section:nth-of-type(2){
+	display: flex;
+	justify-content: center;
+	top: 0em;
+	z-index: 90;
+
+	position: sticky;
+
+	padding-bottom: 1em;
+
+	background-color: var(--color-background-section1);
+}
+/* radio button styling*/
+/* De default radio button styling verstoppen, zodat het nog genavigeerd kan worden met toetsenbord*/
+input[type="radio"]{
+	position: absolute;
+  	opacity: 0;
+  	cursor: pointer;
+}
+label {
+	display: inline-block;
+    padding: .3em 1em;
+	margin-left: .5em;
+
+    border: 0.13px solid var(--color-label-border);
+    border-radius: .3em;
+
+	background-color: var(--color-background-label);
+	color: var(--color-label-text);
+	font-size: 1.2em;
+
+	cursor: pointer;
+}
+label:hover{
+	background-color: var(--color-background-label-hover);
+	border-color: var(--color-label-border-hover);
+}
+input[type="radio"]:hover + label{
+	transform: scale(1.1);
+}
+/* styling van geselecteerde radio button*/
+input[type="radio"]:checked + label {
+	background-color:var(--color-input-checked);
+    border-color: var(--color-input-checked);
+}
+/* styling van focus radio button*/
+input[type="radio"]:focus + label {
+	border: .15em solid var(--color-focus);
+}
+input[type="radio"]:active + label{
+	color: var(--color-active);
+	background-color: var(--color-background-active);
+	border: var(--color-focus);
+}
+
+/* Zodat de eerste labels in de 2 sections geen styling hebben */
+label:nth-of-type(1){
+    all: unset;
+}
+
+/**************************/
+/* Section 3: sorteer op  */
+/**************************/
+section:nth-of-type(3){
+	display: flex;
+	justify-content: center;
+	z-index: 80;
+
+	position: sticky;
+
+	top: 4.2em;
+	padding-top: 0;
+	background-color: var(--color-background-section1);
+}
+aside {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/************************/
+/* Section 4: de foto's */
+/************************/
+/* standaard grid view */
+section:nth-of-type(4) ul {
+	display: grid;
+	grid-column-gap: 1em;
+	grid-row-gap: 1em;
+}
+section:nth-of-type(4) li {
+	display: flex;
+	justify-content: center;
+
+	list-style: none;
+	cursor:grab;
+}
+/* foto's hover styling */
+section:nth-of-type(4)li img {
+	opacity: .5;
+	transition: .3s ease-in-out;
+}
+section:nth-of-type(4) li img:hover {
+	opacity: .5;
+	transform: scale(.99);
+}
+/* Groote van de foto in een list view */
+section:nth-of-type(4) img {
+	max-width: 100%;
+
+	border-radius: 5%;
+	box-shadow: var(--color-box-shadow-img) 0px 3px 7px;
+}
+/* code url: https://codepen.io/shooft/pen/BaOwRBq */
+ul[data-view='gridView'] {
+	grid-template-columns:1fr 1fr 1fr;
+	grid-column-gap: 1.5em;
+	grid-row-gap: 1.5em;
+  }
+/* Groote van de foto in een grid view */
+ul[data-view='gridView'] img{
+	max-width: 100%;
+	height: auto;
+}
+/* code url: https://codepen.io/shooft/pen/bGxoWNO */
+ul.person li:not(.person) {
+	display:none;
+} 
+ul.place li:not(.place) {
+	display:none;
+}
+ul.sights li:not(.sights) {
+	display:none;
+}
+/* foto svg styling: geen resultaat gevonden */
+.sights {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	padding: 5em;
+}
+.sights p{
+	text-align: center;
+}
+svg {
+	width: auto;
+	padding-bottom: 1em;
+}
+#lens {
+	fill: var(--color-svg-1);
+}
+#camera {
+	fill: var(--color-svg-2);
+}
+#cirkel {
+	fill: var(--color-svg-3);
+}
+
+
+/**************/
+/* media query*/
+/**************/
+/* styling kleine scherm */
+@media (max-width: 32em) {
+	section:nth-of-type(1) li img {
+		height: auto;
+	}
+	.swiper-button-prev, .swiper-button-next{
+		padding: 3em 4em 3em 2em;
+		margin: 0;
+		font-size: .7em;
+	}
+	aside {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	label{
+		margin: .5em 0 .5em .5em;
+	}
+	section:nth-of-type(4) ul {
+		padding: 2em;
+	}
+	section:nth-of-type(4) .sights {
+		display: flex;
+	}
+	
+}
+@media (min-width: 33em) {
+	aside {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		width: 100%;
+	}
+	section:nth-of-type(4) ul {
+		padding: 1em;
+	}
+}
+}
+/**************/
+/* test: https://dev.to/saikatbishal/how-to-make-a-splash-screen-using-html-css-and-javascript-240m*/
+/**************/
+
+.splash{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	position : fixed;
+	top : 50%;
+	left : 50%;
+	height : 100%;
+	width : 100%;
+	transform : translate(-50%,-50%);    
+	background-color: #161426;
+	/*transition all gebruikt, zodat alle elementen dezelfde transition krijgen*/
+	transition : all ease-in-out 600ms;
+	z-index: 100;
+	cursor: progress;
+  }
+  .hidden{
+	transition : ease-out 5s;
+	display : none;
+  }
+.splash span {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	font-size: 2.5em;
+}
+  /*.splash-header {
+	display : flex;
+	justify-content: center;
+	align-items : center;
+
+	height : 10%;
+	font-size : 30px;
+	
+
+  }*/
+
+  button {
+	width: 15em;
+	margin-top: 1em;
+	padding: 1em 2em;
+	font-size: 1em;
+	font-weight: bold;
+	cursor : pointer;
+
+  }
+  
+  
+  

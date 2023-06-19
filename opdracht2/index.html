@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="nl">
+	
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Cherlyn Fare">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="styles/style.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+    <div class="splash">
+        <span>Vakantie</span>
+        <span>foto's</span>
+        <span>2022</span>
+
+        <button>Open gallerij!</button>
+      </div>
+	<header>
+        <h1>Vakantie foto's</h1>
+	</header>
+
+
+	<main>
+        <section class="swiper">
+          
+            <p class="swiper-pagination"></p>
+            
+            <!-- dit element met de class (swiper-button-prev) gebruikt de lib voor de vorige button -->
+            <button class="swiper-button-prev"></button>
+            <!-- dit element met de class (swiper-button-next) gebruikt de lib voor de volgende button -->
+            <button class="swiper-button-next"></button>
+            
+            <!-- deze class (swiper-wrapper) heeft de lib ook nodig - de binnenste container -->
+            <ul class="swiper-wrapper">
+            
+              <!-- deze class (swiper-slide) heeft de lib ook nodig - voor elke card/slide -->
+              <li class="swiper-slide"><img src="images/hoge-uitzicht.jpg" alt="hoge uitzicht"/></li>
+              <li class="swiper-slide"><img src="images/persoon1.jpg" alt="persoon"/></li>
+              <li class="swiper-slide"><img src="images/parijs.jpg" alt="eifeltoren"/></li>
+              <li class="swiper-slide"><img src="images/waterval.jpg" alt="waterval"/></li>
+              <li class="swiper-slide"><img src="images/vrienden.jpg" alt="vrienden"/></li>
+              <li class="swiper-slide"><img src="images/zee.jpg" alt="zee"/></li>
+              <li class="swiper-slide"><img src="images/vliegtuig.jpg" alt="vliegtuig uitzicht"/></li>
+              <li class="swiper-slide"><img src="images/moskee.jpg" alt="moskee"/></li>
+              <li class="swiper-slide"><img src="images/berg.jpg" alt="berg"/></li>              
+              <li class="swiper-slide"><img src="images/trap-water.jpg" alt="trap met water"/></li>
+              <li class="swiper-slide"><img src="images/zonsondergang.jpg" alt="zonsondergang"/></li>
+              <li class="swiper-slide"><img src="images/paragliden.jpg" alt="paragliden"/></li>
+            </ul>
+        </section>
+
+        
+        <section>
+            <form>
+                <label>Toon in een:</label>
+                <input type="radio" name="view" value="list" id="view-list" checked>
+                <label for="view-list">Lijst</label>
+                <input type="radio" name="view" value="list" id="view-grid">
+                <label for="view-grid">Grid</label>
+            </form>
+        </section>
+
+        <section>
+            <aside>
+                <label>Sorteer op:</label>
+                <!-- bij het openen van de pagina geen filter -> alles -->
+                <input type="radio" name="filter" value="all" id="filter-all">
+                <label for="filter-all">Alles</label>
+                
+                <!-- de values van de radio buttons worden zo gebruikt om te filteren -->
+                <input type="radio" name="filter" value="person" id="filter-person" >
+                <label for="filter-person">Personen</label>
+                <input type="radio" name="filter" value="place" id="filter-place">
+                <label for="filter-place">Plaatsen</label>
+                <input type="radio" name="filter" value="sights" id="filter-sights">
+                <label for="filter-sights">Bezienswaardigheden</label>
+              </aside>
+        </section>
+
+            <!-- ik heb een class voor de laatste section gebruikt, omdat anders de carousel, grid view en filters tegelijkertijd werken-->
+        <section class="alles">
+            <!-- bij het openen wordt de lijst in een lijst getoond -->
+            <ul data-view="listView">
+                <li class="place"><img src="images/hoge-uitzicht.jpg" alt="hoge uitzicht"></li>
+                <li class="person"><img src="images/persoon1.jpg" alt="persoon"></li>
+                <li class="place"><img src="images/parijs.jpg" alt="de eifeltoren"></li>
+                <li class="place"><img src="images/waterval.jpg" alt="waterval"></li>
+                <li class="person"><img src="images/vrienden.jpg" alt="vrienden"></li>
+                <li class="place"><img src="images/zee.jpg" alt="zee"></li>
+                <li class="place"><img src="images/vliegtuig.jpg" alt="vliegtuig"></li>
+                <li class="place"><img src="images/moskee.jpg" alt="moskee"></li>
+                <li class="place"><img src="images/berg.jpg" alt="berg"></li>
+                <li class="place"><img src="images/trap-water.jpg" alt="trap met water"></li>
+                <li class="place"><img src="images/zonsondergang.jpg" alt="zonsondergang"></li>
+                <li class="person"><img src="images/paragliden.jpg" alt="paragliden"></li>
+          
+            </ul>
+            <ul>      <li class="sights">
+                <svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.13 80.33"><defs>
+                <style>.cls-1{fill:#009fe3;}.cls-2{fill:#dadada;}.cls-3{fill:#1d1d1b;}</style>
+                </defs><circle id="lens" class="cls-1" cx="40.06" cy="40.23" r="39.43"/>
+                <path id="camera" class="cls-3" d="M60.65,23.46h-13.07v-1.8c0-1.97-1.6-3.57-3.57-3.57h-7.9c-1.97,0-3.57,1.6-3.57,3.57v1.8h-13.07c-2.67,0-4.83,2.16-4.83,4.83v29.25c0,2.67,2.16,4.83,4.83,4.83H60.65c2.67,0,4.83-2.16,4.83-4.83V28.29c0-2.67-2.16-4.83-4.83-4.83Z"/>
+                <circle id="cirkel" class="cls-2" cx="40.06" cy="42.92" r="12.67"/>
+                </svg>
+                <p>Er zit geen foto in deze lijst!</p>
+            </li></ul>
+        </section>
+	</main>
+   
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+	<script defer src="scripts/script.js"></script>
+</body>
+	
+</html>
