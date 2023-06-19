@@ -34,6 +34,16 @@ button:not(:disabled), summary {
 	--color-text-h1:#fff;
 	--color-text:#000;
 	--color-background:#f2e8d9;
+	--color-img-hover: rgba(150, 150, 150, 0.5);
+
+	/* splash screen styling */
+	--color-span: #fff;
+	--color-background-splashscreen: #ECA4B1;
+	--color-border-laadbalk: #fff; 
+	--color-laden-laadbalk: #D95F76;
+	--color-button-splash: #D95F76;
+	--color-button-border-splash: #D95F76;
+	--color-button-splash-hover: #D95F76;
 
 	/* header kleur */
 	--color-background-header: #ECA4B1;
@@ -76,15 +86,23 @@ button:not(:disabled), summary {
 }
 @media (prefers-color-scheme:dark) {
 	body {
-		--color-text-h1:#fff;
 		--color-text:#fff;
 		--color-background:#161426;
+
+		--color-background-splashscreen: #034873;
+		--color-border-laadbalk: #fff; 
+		--color-laden-laadbalk: #3A3873;
+
+		--color-background-splashscreen: #034873;
+		--color-border-laadbalk: #fff; 
+		--color-laden-laadbalk: #3A3873;
+		--color-button-splash: #7988D9;
+		--color-button-border-splash: #7988D9;
+		--color-button-splash-hover: #7988D9;
 
 		--color-background-header: #3A3873;
 
 		--color-background-section1: #034873;
-
-		--swiper-theme-color:#fff;
 
 		--color-svg-1: #ffff;
 		--color-svg-2: #000;
@@ -93,7 +111,6 @@ button:not(:disabled), summary {
 		--color-swiper-button-hover: #034873;
 		--color-swiper-button-active: #7988D9;
 
-		--color-label-text: #fff;
 		--color-background-label: #7988D9;
 		--color-label-border: #7988D9;
 		--color-background-label-hover: #161426;
@@ -101,33 +118,22 @@ button:not(:disabled), summary {
 
 		--color-input-checked: #3A3873;
 
-		--color-focus: #fff;
-
-		--color-background-active: #fff;
 		--color-active: #3A3873;
-
-
 	}
+}
 
 /*********************/
 /* algemene styling */
 /*******************/
 html {
 	height:100%;
-  
+
 }
 body {
-	/*min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;*/
-	
   	font-family: eenfont, sans-serif;
 
   	color:var(--color-text);
   	background-color:var(--color-background);
-
-  	
 }
 header {
 	top: 0;
@@ -136,13 +142,11 @@ header {
 	padding: 1em 1em;
 
 	background-color: var(--color-background-header);
-
 	text-align:center;
 }
 
 h1 {
 	text-align: center;
-
 	color:var(--color-text-h1);
 }
 section {
@@ -156,9 +160,141 @@ img {
 }
 img:hover{
 	cursor: pointer;
-
-	background-color: rgba(150, 150, 150, 0.5);
+	background-color: var(--color-img-hover);
 }
+
+/*************************/
+/* splash screen styling */
+/*************************/
+/* code url: https://dev.to/saikatbishal/how-to-make-a-splash-screen-using-html-css-and-javascript-240m */
+.splash{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+
+	z-index: 100;
+	position : fixed;
+	top : 50%;
+	left : 50%;
+	height : 100%;
+	width : 100%;
+	
+	/*transition all gebruikt, zodat alle elementen dezelfde transition krijgen*/
+	transform : translate(-50%,-50%); /* om de container roch zichzelf te centreren*/   
+	transition : all ease-out 600ms; /* 0.6 sec voor een smooth overgang als het verdwijnt na het klikken*/ 
+	
+	background-color: var(--color-background-splashscreen);
+	cursor: wait;
+}
+.splash span {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	padding-bottom: .5em;
+
+	color: var(--color-span);
+	font-size: 2.5em;
+}
+/* deze class verbergt de container nadat de dekking met JS op 0 gezet is*/
+.hidden{
+	transition : ease-out 5s;
+	display : none;
+}
+
+/* pulse animatie voor de tekst: vakantie foto's 2022*/
+span {
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(0.95);
+	}
+}
+/*laad balk styling*/
+.progress {
+    position: relative;
+	padding-bottom: 1.2em;
+    margin-bottom: 1em;
+
+    height: 0.63em;
+    width: 30em;
+
+    border: 0.63em solid var(--color-border-laadbalk);
+    border-radius: 0.94em;
+}
+.progress span {
+    position: absolute;
+    height: .3em;
+
+    border-radius: 0.2em;
+	background-color: var(--color-laden-laadbalk);
+
+    animation: laden 5s linear;    
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+@keyframes laden{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 20%;
+    }
+    50%{
+        width: 40%;
+    }
+    75%{
+        width: 60%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+.splash button {
+	padding: 1em 2em;
+	border: 0.13px solid var(--color-button-border-splash) ;
+	border-radius: .3em;
+
+	font-size: 1em;
+	font-weight: bold;
+
+	color: var(--color-text-h1);
+	background-color: var(--color-button-splash);
+
+	opacity: 0;
+	animation: knop .5s linear; 
+	animation-delay: 6s;   
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+@keyframes knop{
+    0%{
+      opacity: 0;
+    }
+    100%{
+		opacity: 100%;
+    }
+}
+.splash button:hover{
+	transform: scale(1.1);
+	color: var(--color-button-splash-hover);
+	background-color: var(--color-span);
+	border-color: var(--color-focus);
+}
+.splash button:focus{
+	border: .3em solid var(--color-focus);
+}
+
+  
 /****************************/
 /* Section 1: carousel */
 /****************************/
@@ -469,91 +605,3 @@ svg {
 	padding-bottom: .5em;
 	font-size: 2.5em;
 }
-  /*.splash-header {
-	display : flex;
-	justify-content: center;
-	align-items : center;
-
-	height : 10%;
-	font-size : 30px;
-	
-
-  }*/
-
-
-  
-/*laad bar test*/
-
-  .progress{
-    position: relative;
-	padding-bottom: 1.2em;
-    margin-bottom: 1em;
-    height: 10px;
-    width: 30em;
-    border: 10px solid #fff;
-    border-radius: 15px;
-}
-.progress span{
-    position: absolute;
-    height: .3em;
-
-    border-radius: 3px;
-	background-color: #3A3873;
-
-    animation: laden 5s linear;    
-	animation-fill-mode: forwards;
-	animation-iteration-count: 1;
-}
-@keyframes laden{
-    0%{
-      width: 0%;
-    }
-    25%{
-        width: 20%;
-    }
-    50%{
-        width: 40%;
-    }
-    75%{
-        width: 60%;
-    }
-    100%{
-        width: 100%;
-    }
-}
-.splash button {
-	padding: 1em 2em;
-	border: 0.13px solid #7988D9 ;
-	border-radius: .3em;
-
-	font-size: 1em;
-	font-weight: bold;
-
-	color: var(--color-text-h1);
-	background-color: #7988D9;
-
-	opacity: 0;
-	animation: knop .5s linear; 
-	animation-delay: 6s;   
-	animation-fill-mode: forwards;
-	animation-iteration-count: 1;
-}
-.splash button:hover{
-	transform: scale(1.1);
-	color: #7988D9;
-	background-color: #fff;
-	border-color: #fff;
-}
-.splash button:focus{
-	border: .3em solid var(--color-focus);
-}
-@keyframes knop{
-    0%{
-      opacity: 0;
-    }
-    100%{
-		opacity: 100%;
-    }
-}
-  
-  
