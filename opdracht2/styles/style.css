@@ -224,7 +224,7 @@ section:nth-of-type(1) li img {
 }
 .swiper-button-prev:focus,
 .swiper-button-next:focus {
-	border: .15em solid var(--color-focus);
+	border: .3em solid var(--color-focus);
 }
 .swiper-button-prev:active,
 .swiper-button-next:active {
@@ -451,11 +451,11 @@ svg {
 	height : 100%;
 	width : 100%;
 	transform : translate(-50%,-50%);    
-	background-color: #161426;
+	background-color: #034873;
 	/*transition all gebruikt, zodat alle elementen dezelfde transition krijgen*/
 	transition : all ease-in-out 600ms;
 	z-index: 100;
-	cursor: progress;
+	cursor: wait;
   }
   .hidden{
 	transition : ease-out 5s;
@@ -466,6 +466,7 @@ svg {
 	flex-direction: column;
 	justify-content: center;
 
+	padding-bottom: .5em;
 	font-size: 2.5em;
 }
   /*.splash-header {
@@ -479,15 +480,80 @@ svg {
 
   }*/
 
-  button {
-	width: 15em;
-	margin-top: 1em;
+
+  
+/*laad bar test*/
+
+  .progress{
+    position: relative;
+	padding-bottom: 1.2em;
+    margin-bottom: 1em;
+    height: 10px;
+    width: 30em;
+    border: 10px solid #fff;
+    border-radius: 15px;
+}
+.progress span{
+    position: absolute;
+    height: .3em;
+
+    border-radius: 3px;
+	background-color: #3A3873;
+
+    animation: laden 5s linear;    
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+@keyframes laden{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 20%;
+    }
+    50%{
+        width: 40%;
+    }
+    75%{
+        width: 60%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+.splash button {
 	padding: 1em 2em;
+	border: 0.13px solid #7988D9 ;
+	border-radius: .3em;
+
 	font-size: 1em;
 	font-weight: bold;
-	cursor : pointer;
 
-  }
-  
+	color: var(--color-text-h1);
+	background-color: #7988D9;
+
+	opacity: 0;
+	animation: knop .5s linear; 
+	animation-delay: 6s;   
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+.splash button:hover{
+	transform: scale(1.1);
+	color: #7988D9;
+	background-color: #fff;
+	border-color: #fff;
+}
+.splash button:focus{
+	border: .3em solid var(--color-focus);
+}
+@keyframes knop{
+    0%{
+      opacity: 0;
+    }
+    100%{
+		opacity: 100%;
+    }
+}
   
   

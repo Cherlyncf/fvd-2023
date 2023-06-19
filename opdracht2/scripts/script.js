@@ -4,7 +4,7 @@ splashScreen.addEventListener('click',()=>{
   splashScreen.style.opacity = 0;
   setTimeout(()=>{
     splashScreen.classList.add('hidden')
-  }, 5000)
+  }, 1000)
 })
 /************/
 /* carousel */
