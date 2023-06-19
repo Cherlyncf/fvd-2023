@@ -18,7 +18,7 @@ splashScreen.addEventListener('click',()=>{
 /************/
 /* carousel */
 /************/
-/* code url:mhttps://codepen.io/shooft/pen/GRXMEoV */
+/* code url:https://codepen.io/shooft/pen/GRXMEoV */
 var carousel = {
   direction: 'horizontal', //richting van de carousel - de default
   loop: 'true', // van 25 naar 1 en vice versa
@@ -81,7 +81,7 @@ var optionPerson = document.querySelector("#filter-person");
 var optionPlace = document.querySelector("#filter-place");
 var optionSights = document.querySelector("#filter-sights");
 
-/* een add event listener toevoegen, zodat het luistert naar een klik op de radio button's */
+/* een add event listener toevoegen, zodat het luistert naar een klik op de radio button */
 optionAll.addEventListener("change", filterList);
 optionPerson.addEventListener("change", filterList);
 optionPlace.addEventListener("change", filterList);
