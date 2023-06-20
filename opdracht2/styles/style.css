@@ -9,7 +9,6 @@
 			 url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-
 }
 
 /**************/
@@ -80,9 +79,6 @@ button:not(:disabled), summary {
 
 	--color-background-active: #fff;
 	--color-active: #ECA4B1;
-
-
-
 }
 @media (prefers-color-scheme:dark) {
 	body {
@@ -127,7 +123,6 @@ button:not(:disabled), summary {
 /*******************/
 html {
 	height:100%;
-
 }
 body {
   	font-family: eenfont, sans-serif;
@@ -201,7 +196,6 @@ img:hover{
 	transition : ease-out 5s;
 	display : none;
 }
-
 /* pulse animatie voor de tekst: vakantie foto's 2022*/
 span {
 	transform: scale(1);
@@ -275,6 +269,7 @@ span {
 	animation-fill-mode: forwards;
 	animation-iteration-count: 1;
 }
+/* animatie, zodat de knop verschijnt nadat de laadbalk geladen is */
 @keyframes knop{
     0%{
       opacity: 0;
@@ -294,9 +289,9 @@ span {
 }
 
   
-/****************************/
+/***********************/
 /* Section 1: carousel */
-/****************************/
+/***********************/
 section:nth-of-type(1) {
 	display: flex;
 	justify-content: center;
@@ -309,17 +304,16 @@ section:nth-of-type(1) {
 }
 p {
 	font-size: 1.5em;
+	padding-bottom: .5em;
 }
-
-/* de lijst */
+/* de lijst van de carousel */
   section:nth-of-type(1) ul {
-
 	height:100%;
 	margin: 2em 2em;
 	padding:0;
 	list-style:none;
   }
-/* een foto */
+/* foto's in de carousel */
 section:nth-of-type(1) li { 
 	height:100%;
 
@@ -338,6 +332,7 @@ section:nth-of-type(1) li img {
 
 	border-radius: 5%;
 }
+/* terug en volgende knop styling */
 .swiper-button-prev,
 .swiper-button-next {
 	padding: 3em 4em 3em 2.3em;
@@ -352,9 +347,7 @@ section:nth-of-type(1) li img {
 .swiper-button-prev:hover,
 .swiper-button-next:hover{
 	transform: scale(1.1);
-
 	background: var(--color-swiper-button-hover);
-
 }
 .swiper-button-prev:focus,
 .swiper-button-next:focus {
@@ -377,7 +370,6 @@ section:nth-of-type(2){
 	z-index: 90;
 
 	position: sticky;
-
 	padding-bottom: 1em;
 
 	background-color: var(--color-background-section1);
@@ -424,11 +416,11 @@ input[type="radio"]:active + label{
 	background-color: var(--color-background-active);
 	border: var(--color-focus);
 }
-
 /* Zodat de eerste labels in de 2 sections geen styling hebben */
 label:nth-of-type(1){
     all: unset;
 }
+
 
 /**************************/
 /* Section 3: sorteer op  */
@@ -450,6 +442,7 @@ aside {
 	align-items: center;
 }
 
+
 /************************/
 /* Section 4: de foto's */
 /************************/
@@ -466,7 +459,7 @@ section:nth-of-type(4) li {
 	list-style: none;
 	cursor:grab;
 }
-/* foto's hover styling */
+/* foto's hover styling met opacity en scale */
 section:nth-of-type(4)li img {
 	opacity: .5;
 	transition: .3s ease-in-out;
@@ -480,7 +473,7 @@ section:nth-of-type(4) img {
 	max-width: 100%;
 
 	border-radius: 5%;
-	box-shadow: var(--color-box-shadow-img) 0px 3px 7px;
+	box-shadow: var(--color-box-shadow-img) 0px 0.2em 0.44em;
 }
 /* code url: https://codepen.io/shooft/pen/BaOwRBq */
 ul[data-view='gridView'] {
@@ -503,20 +496,16 @@ ul.place li:not(.place) {
 ul.sights li:not(.sights) {
 	display:none;
 }
-/* foto svg styling: geen resultaat gevonden */
+/* foto svg styling: plaatsing*/
 .sights {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
-	padding: 5em;
 }
 .sights p{
 	text-align: center;
 }
-#filter-all .sights li svg{
-	width: 10%;
-}
+/* foto svg styling: geen resultaat gevonden, empty state */
 svg {
 	width: 40%;
 	padding-bottom: 1em;
@@ -530,13 +519,19 @@ svg {
 #cirkel {
 	fill: var(--color-svg-3);
 }
-.listView li:nth-last-of-type(13) {
-	
+/* foto svg styling staat in het midden bij de lijst view*/
+.alles ul[data-view='listView']  li.sights{
+	align-items: center;
+	width: 20em;
+}
+section:nth-of-type(4) [data-view='listView']{
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 }
-section:nth-of-type(4) .sights {
+.alles ul[data-view='gridView'] .sights svg{
 	align-items: center;
-
+	width: 10em;
 }
 
 
@@ -546,6 +541,12 @@ section:nth-of-type(4) .sights {
 /* ik heb het helemaal onderin geplaatst, want anders werkt het niet*/
 /* styling kleine scherm */
 @media (max-width: 32em) {
+	.splash span {
+		font-size: 1.8em;
+	}
+	.progress{
+		width: 16em;
+	}
 	section:nth-of-type(1) li img {
 		height: auto;
 	}
@@ -568,7 +569,7 @@ section:nth-of-type(4) .sights {
 	section:nth-of-type(4) .sights {
 		display: flex;
 		align-items: center;	
-}
+	}
 }
 /* styling grote scherm */
 @media (min-width: 33em) {
@@ -581,4 +582,5 @@ section:nth-of-type(4) .sights {
 	section:nth-of-type(4) ul {
 		padding: 1em;
 	}
+
 }

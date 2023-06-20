@@ -100,6 +100,3 @@ function filterList(event){
   // de value van die radio button is de nieuwe class
   deLijst.classList.add(nieuweFilter);
 }
-
-
-
