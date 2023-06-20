@@ -148,7 +148,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   #### oplossing:
   Ik heb verschillende animaties, micro-interacties en user interface events toegevoegd aan mijn ontwerp na de test. De buttons hebben verschillende states, er is een loading state met een progress bar en een empty state.
   <img src="readme-images/button-states.png" width="375px" alt="button states">
-  <img src="readme-images/loading-state" width="375px" alt="de loading state">
+  <img src="readme-images/loading-state.png" width="375px" alt="de loading state">
   <img src="readme-images/empty-state.png" width="375px" alt="de empty state">
 
 
@@ -170,9 +170,15 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken bij afronden opdracht (voor week 8)</summary>
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  Korte omschrijving met plaatje(s)   
+  Over het algemeen ben ik wel tevreden met het eindresultaat, want ik heb het ongeveer in ander halve week moeten maken. Mijn eerste ontwerp was te moeilijk voor mij om na te maken, dus had ik besloten om toch iets anders te maken.
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
+  De vormgeving van de pagina vind ik goed gelukt en je ziet duidelijk een verschil tussen light en dark mode. Het is volledig responsive en de foto’s schalen goed mee door het gebruik van een grid. Verder heb ik veel micro interacties toegevoegd, zoals de verschillende states bij de knoppen en is het gebruiksvriendelijk. Je kan er makkelijk doorheen klikken, tabben en de carousel zelfs swipen. Ik wou ook dat je op de foto’s kon klikken om ze in het groot te bekijken, maar daar heb ik geen tijd voor gehad en weet ik niet hoe het precies moet.
+
+  <img src="readme-images/result1.png" width="375px" alt="top">
+  <img src="readme-images/result2.png" width="375px" alt="top">
+  <img src="readme-images/result3.png" width="375px" alt="top">
+  <img src="readme-images/result4.png" width="375px" alt="top">
+
 
   ### Dit ging goed/Heb ik geleerd: 
   De pagina is responsive en de foto's schalen goed mee. Ik heb ook beter leren werken met grids.
@@ -188,6 +194,12 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   ### Dit was lastig/Is niet gelukt:
   Ik wou eingelijk de carousel net zoals de foto hieronder vormgeven, maar dat lukte mij niet en heb ik uiteindelijk de code van dlo gebruikt.
   <img src="readme-images/carousel-anders.png" width="375px" alt="carousel anders vormgeven">
+
+
+  De empty state is niet helemaal gelukt, want als je op "alles" klikt om alle foto's te bekijken zie je de foto en tekst onderaan staan. Het is de bedoeling dat de foto en tekst voor de empty state alleen tevoorschijn komt als je op "bezienswaardigheden" klikt. Ik probeerde het weg te halen, maar dat is helaas niet gelukt.
+  <img src="readme-images/empty-state.png" width="375px" alt="hoe ik de empty state wil hebben">
+  <img src="readme-images/empty-state-list.png" width="375px" alt="mislukte empty state list view">
+  <img src="readme-images/empty-state-grid.png" width="375px" alt="mislukte empty state grid view">
 
 
 
