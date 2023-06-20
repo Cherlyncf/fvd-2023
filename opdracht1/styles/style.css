@@ -26,34 +26,39 @@ button:not(:disabled), summary {
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
+	/* oreo letter styling */
 	--color-text:#ffffff;
 	--color-text-vullen:#1c468d;
 	--color-text-line1:#1c468d;
 	--color-text-line2: #94d1eb;
 
-	--color-background: #1c468d;
-	/*light mode*/
+	--background-color: #1c468d;
 
-	--color-background-dark: #030334;
-	/*dark mode*/
-
+	/* glas melk styling */
 	--color-milk: #ffffff;
-	--background-milk-glass: #2c5498;
+	--background-milk-glass: rgba(255, 255, 255, 0.4);
 }
-
-/****************/
-/* STYLING */
-/****************/
-
+@media (prefers-color-scheme: dark) {
+	body {
+		--background-color: #030334;
+		
+		--color-milk: #3f2121;
+		--background-milk-glass: rgba(124, 102, 102, 0.4);
+	}
+}
+/*********************/
+/* algemene STYLING */
+/********************/
+/* zodat de content in het midden van het scherm staat */
+html, body {
+    height: 100%;
+}
 /* code van: https://codepen.io/shooft/pen/rNqmqga */
 body {
-	height:70vh;
-  	margin: 0;
-	
 	/* OREO staat in het midden van de pagina */
 	display:grid;
 	place-content: center ;
-	background: var(--color-background);
+	background-color: var(--background-color);
 }
 
 /********************/
@@ -61,17 +66,15 @@ body {
 /******************/
 h1 {
 	display: flex;	
-	flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-	align-items: center;
 
+	max-width: 8em;
 	gap: .15em;
 
 	font-family: 'Archivo', sans-serif;
 	font-size: 3.8em;
 }
-
 h1 span {
 	position: relative;
 	
@@ -115,19 +118,16 @@ h1:hover span {
 	animation-timing-function: ease-in-out
 }
 
-/* Animatie per letter*/
+/* Animatie per letter, zodat ze 1 voor 1 omlaag gaan*/
 h1:hover span:nth-of-type(1) {
 	animation-delay: .5s;
 }
-
 h1:hover span:nth-of-type(2) {
 	animation-delay: 1s;
 }
-
 h1:hover span:nth-of-type(3) {
 	animation-delay: 1.5s;
 }
-
 h1:hover span:nth-of-type(4) {
 	animation-delay: 2s;
 }
@@ -136,7 +136,7 @@ h1:hover span:nth-of-type(4) {
 h1:hover span:nth-of-type(5) {
 	animation: none;
 }
-
+/* met transform translatey dip ik de letters in het glas op verschillende momenten */
 @keyframes dip {
 	0% {
 		transform:translatey(0);
@@ -162,27 +162,25 @@ h1:hover span:nth-of-type(5) {
 
 /* Gedeeltelijke code van: https://codepen.io/Spate/pen/gOGJMgG */
 h1 span:nth-of-type(5){
-
-	margin-top: .1em;
 	width: 4.8em;
 	height: 3em;
- 
+
+ 	/* met de clip path polygon heb ik een glas gemaakt */
 	clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: var(--background-milk-glass);
 }
 
 /* styling van de melk*/
+/* ik heb een before gebruikt zodat de melk voor het glas komt 
+en de letters tussen het glas en melk komt te staan*/
 h1 span:nth-of-type(5)::before {
 	content: "";
-	width: 150%;
+	width: 100%;
 	height: 100%;
-	background: var(--background-milk-glass);
 
 	position: absolute;
-	top: 5%;
-	left: -25%;
-
 	background-color: var(--color-milk);
+	/* een clip path polygon gebruikt om de melk uit het glas te stylen*/
 	clip-path: polygon(0 5%, 9% 13%, 36% 19%, 62% 19%, 85% 15%, 100% 4%, 93% 66%, 87% 100%, 15% 100%, 10% 67%);
 
 	animation-name: milk;
@@ -190,45 +188,15 @@ h1 span:nth-of-type(5)::before {
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 }
-
+/* met transform rotate laad ik de melk in het glas schommelen */
 @keyframes milk {
 	0% {
-	  transform: rotate(0deg);
+	  transform: rotate(0deg); 
 	}
 	50% {
-	  transform: rotate(7deg);
+	  transform: rotate(4deg);
 	}
 	100% {
 	  transform: rotate(0deg);
 	}
   }	
-
-@media (prefers-color-scheme:dark) {
-	body {
-		height:100vh;
-		margin: 0;
-	
-		/* OREO staat in het midden van de pagina */
-		display:grid;
-		place-content:center;
-		background: var(--color-background-dark);
-	}
-}
-
-/* Mediaquery voor responsivenes*/
-@media screen and (min-width: 501px) {
-	body {
-		height:70vh;
-	}
-	h1 {
-		font-size:3.8em;
-	}
-	h1 span {
-		top: .3em;
-		right: -2.4em;
-	}
-	h1 span:nth-of-type(5) {
-		top: 2.5em;
-		right:2.3em;
-	}
-}
