@@ -26,42 +26,58 @@
 
 	<header>
         <h1>Vakantie foto's</h1>
+        <button>Toon slideshow</button>
 	</header>
 
 	<main>
         <section class="swiper">
             <p class="swiper-pagination"></p>
-            
+
+            <!-- aria hidden kan worden gebruikt om niet interactieve inhoud, zoals afbeeldingen en uitgevouwen menu's te verbergen voor screenreader gebruikers  -->
+            <button aria-hidden="true"><img src="images/sluiten.png" alt="sluiten"></button> 
+
             <!-- dit element met de class (swiper-button-prev) gebruikt de lib voor de vorige button -->
             <button class="swiper-button-prev"></button>
             <!-- dit element met de class (swiper-button-next) gebruikt de lib voor de volgende button -->
             <button class="swiper-button-next"></button>
-            
+			
             <!-- deze class (swiper-wrapper) heeft de lib ook nodig - de binnenste container -->
             <ul class="swiper-wrapper">
                 <!-- deze class (swiper-slide) heeft de lib ook nodig - voor elke card/slide -->
-                <li class="swiper-slide"><img src="images/hoge-uitzicht.jpg" alt="hoge uitzicht"/></li>
-                <li class="swiper-slide"><img src="images/persoon1.jpg" alt="persoon"/></li>
-                <li class="swiper-slide"><img src="images/parijs.jpg" alt="eifeltoren"/></li>
-                <li class="swiper-slide"><img src="images/waterval.jpg" alt="waterval"/></li>
-                <li class="swiper-slide"><img src="images/vrienden.jpg" alt="vrienden"/></li>
-                <li class="swiper-slide"><img src="images/zee.jpg" alt="zee"/></li>
-                <li class="swiper-slide"><img src="images/vliegtuig.jpg" alt="vliegtuig uitzicht"/></li>
-                <li class="swiper-slide"><img src="images/moskee.jpg" alt="moskee"/></li>
-                <li class="swiper-slide"><img src="images/berg.jpg" alt="berg"/></li>              
-                <li class="swiper-slide"><img src="images/trap-water.jpg" alt="trap met water"/></li>
-                <li class="swiper-slide"><img src="images/zonsondergang.jpg" alt="zonsondergang"/></li>
-                <li class="swiper-slide"><img src="images/paragliden.jpg" alt="paragliden"/></li>
-                <li class="swiper-slide"><img src="images/plafond.jpg" alt="plafond in de Louvre"/></li>
-                <li class="swiper-slide"><img src="images/mona-lisa.jpg" alt="De Mona Lisa"/></li>
-                <li class="swiper-slide"><img src="images/vrienden-parijs.jpg" alt="vrienden in Parijs"/></li>
-                <li class="swiper-slide"><img src="images/drankje.jpg" alt="drankje in de avond in Parijs"/></li>
-                <li class="swiper-slide"><img src="images/photobooth.jpg" alt="photobooth foto"/></li>
-                <li class="swiper-slide"><img src="images/gifje.jpg" alt="gifje foto"/></li>
-                <li class="swiper-slide"><img src="images/dansen.jpg" alt="dansen in Turkije"/></li>
-                <li class="swiper-slide"><img src="images/turkije.jpg" alt="mensen in Turkije"/></li>
-                <li class="swiper-slide"><img src="images/cher-en-lies.jpg" alt="2 vrienden"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/hoge-uitzicht.jpg" alt="hoge uitzicht"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/persoon1.jpg" alt="persoon"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/parijs.jpg" alt="eifeltoren"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/waterval.jpg" alt="waterval"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/vrienden.jpg" alt="vrienden"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/zee.jpg" alt="zee"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/vliegtuig.jpg" alt="vliegtuig uitzicht"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/moskee.jpg" alt="moskee"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/berg.jpg" alt="berg"/></li>              
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/trap-water.jpg" alt="trap met water"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/zonsondergang.jpg" alt="zonsondergang"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/paragliden.jpg" alt="paragliden"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/plafond.jpg" alt="plafond in de Louvre"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/mona-lisa.jpg" alt="De Mona Lisa"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/vrienden-parijs.jpg" alt="vrienden in Parijs"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/drankje.jpg" alt="drankje in de avond in Parijs"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/photobooth.jpg" alt="photobooth foto"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/gifje.jpg" alt="gifje foto"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/dansen.jpg" alt="dansen in Turkije"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/turkije.jpg" alt="mensen in Turkije"/></li>
+                <li class="swiper-slide"><button>Verwijderen</button><img src="images/cher-en-lies.jpg" alt="2 vrienden"/></li>
             </ul>
+
+            <p>Delen op:</p>
+            <ul>
+                <li><a href=""><img src="images/bluetooth.png" alt="delen via bluetooth"></a></li>
+                <li><a href="https://www.instagram.com/"><img src="images/ig.png" alt="delen via Instagram"></a></li>
+                <!-- img link: https://www.flaticon.com/free-icon/twitter_733635?term=twitter&page=1&position=5&origin=search&related_id=733635 -->
+                <li><a href="https://twitter.com/"><img src="images/twitter.png" alt="delen via Twitter"></a></li>
+                <!-- img link: https://www.flaticon.com/free-icon/bluetooth_2404072?term=bluetooth&page=1&position=5&origin=search&related_id=2404072 -->
+                <li><a href="https://www.facebook.com/"><img src="images/fb.png" alt="delen via Facebook"></a></li>
+            </ul>
+
+            
         </section>
         
         <section>
@@ -88,11 +104,15 @@
                 <label for="filter-place">Plaatsen</label>
                 <input type="radio" name="filter" value="sights" id="filter-sights">
                 <label for="filter-sights">Bezienswaardigheden </label>
-              </aside>
+                <div>
+                    <p>Upload een foto</p>
+                    <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg">
+                </div>
+            </aside>
         </section>
 
             <!-- ik heb een class voor de laatste section gebruikt, zodat  de carousel, grid view en filters tegelijkertijd werken-->
-        <section class="alles">
+        <section class="delijst alles">
             <!-- bij het openen worden de foto's in een lijst getoond -->
             <ul data-view="listView">
                 <li class="place"><img src="images/hoge-uitzicht.jpg" alt="hoge uitzicht"></li>
@@ -117,13 +137,8 @@
                 <li class="place"><img src="images/zonsondergang.jpg" alt="zonsondergang"></li>
                 <li class="person"><img src="images/paragliden.jpg" alt="paragliden"></li>     
                 <li class="sights">
-                    <svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.13 80.33"><defs>
-                    <style>.cls-1{fill:#009fe3;}.cls-2{fill:#dadada;}.cls-3{fill:#1d1d1b;}</style>
-                    </defs><circle id="lens" class="cls-1" cx="40.06" cy="40.23" r="39.43"/>
-                    <path id="camera" class="cls-3" d="M60.65,23.46h-13.07v-1.8c0-1.97-1.6-3.57-3.57-3.57h-7.9c-1.97,0-3.57,1.6-3.57,3.57v1.8h-13.07c-2.67,0-4.83,2.16-4.83,4.83v29.25c0,2.67,2.16,4.83,4.83,4.83H60.65c2.67,0,4.83-2.16,4.83-4.83V28.29c0-2.67-2.16-4.83-4.83-4.83Z"/>
-                    <circle id="cirkel" class="cls-2" cx="40.06" cy="42.92" r="12.67"/>
-                    </svg>
-                    <p>Er zitten geen foto's in deze lijst!</p>
+                    <p>Upload een foto</p>
+                    <input type="file" id="image_input" accept="image/png, image/jpg, image/jpeg">
                 </li>
             </ul>
         </section>
