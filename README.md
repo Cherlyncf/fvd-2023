@@ -91,7 +91,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je ontwerp:
-  <img src="readme-images/mijn-ontwerp.jpg" width="375px" alt="ontwerp opdracht 2">
+  <img src="readme-images/ontwerp.jpg" width="375px" alt="ontwerp opdracht 2">
 
 
   ### Je ambitie: 
@@ -170,9 +170,9 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken bij afronden opdracht (voor week 8)</summary>
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  Over het algemeen ben ik wel tevreden met het eindresultaat, want ik heb het ongeveer in ander halve week moeten maken. Mijn eerste ontwerp was te moeilijk voor mij om na te maken, dus had ik besloten om toch iets anders te maken.
+  Ik ben best tevreden met het eindresultaat en het ontwerp dat ik heb gemaakt is grotendeels gelukt met extra hulp van de docent.
 
-  De vormgeving van de pagina vind ik goed gelukt en je ziet duidelijk een verschil tussen light en dark mode. Het is volledig responsive en de foto’s schalen goed mee door het gebruik van een grid. Verder heb ik veel micro interacties toegevoegd, zoals de verschillende states bij de knoppen en is het gebruiksvriendelijk. Je kan er makkelijk doorheen klikken, tabben en de carousel zelfs swipen. Ik wou ook dat je op de foto’s kon klikken om ze in het groot te bekijken, maar daar heb ik geen tijd voor gehad en weet ik niet hoe het precies moet.
+  De vormgeving van de pagina vind ik goed gelukt en je ziet duidelijk een verschil tussen light en dark mode. Het is volledig responsive en de foto’s schalen goed mee door het gebruik van een grid. Verder heb ik veel micro interacties toegevoegd, zoals de verschillende states bij de knoppen en is het gebruiksvriendelijk. Je kan er makkelijk doorheen klikken, tabben en de carousel zelfs swipen. Het is nu ook veel duidelijker waarvoor deze pagina gebruikt kan worden en voorheen was dat niet zo. Zelf vindt ik JS lastig, maar nu ik de code zo lees begrijp ik het wel beter.
 
   <img src="readme-images/result1.png" width="375px" alt="top">
   <img src="readme-images/result2.png" width="375px" alt="top">
@@ -192,15 +192,14 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Dit was lastig/Is niet gelukt:
-  Ik wou eingelijk de carousel net zoals de foto hieronder vormgeven, maar dat lukte mij niet en heb ik uiteindelijk de code van dlo gebruikt.
-  <img src="readme-images/carousel-anders.png" width="375px" alt="carousel anders vormgeven">
+  Als je een foto wil uploaden via de lijst zelf zie je de foto’s niet in beeld verschijnen, maar het lukt wel via de upload knop in de “navigatie”. Waarschijnlijk heb ik iets verkeerds geschreven in de JS, maar ik ben er niet uitgekomen.
+  <img src="readme-images/uploaden-mislukt.png" width="375px" alt="het uploaden van een foto mislukt">
 
 
-  De empty state is niet helemaal gelukt, want als je op "alles" klikt om alle foto's te bekijken zie je de foto en tekst onderaan staan. Het is de bedoeling dat de foto en tekst voor de empty state alleen tevoorschijn komt als je op "bezienswaardigheden" klikt. Ik probeerde het weg te halen, maar dat is helaas niet gelukt.
-  <img src="readme-images/empty-state.png" width="375px" alt="hoe ik de empty state wil hebben">
-  <img src="readme-images/empty-state-list.png" width="375px" alt="mislukte empty state list view">
-  <img src="readme-images/empty-state-grid.png" width="375px" alt="mislukte empty state grid view">
 
+  Wat ook niet helemaal gelukt is, is de terug en volgende knop van de carousel naast de teller te zetten. Het is wel gelukt op een klein scherm door media query’s te gebruiken, maar tijdens het schalen van het scherm gingen de knoppen steeds mee bewegen. Hetzelfde probleem had ik ook met de verwijder knop.
+  <img src="readme-images/result2.png" width="375px" alt="knoppen naast de teller mislukt">
+  <img src="readme-images/result3.png" width="375px" alt="verwijder knop plaatsing mislukt">
 
 
   De bedoeling bij het laadscherm was dat na dat de progressbar geladen was en er een knop te voorschijn kwam, de gebruiker op moest klikt om de foto's te bekijken. Wat er nu gebeurt is dat de gebruiker tijdens het laden al kan klikken en dat is niet de bedoeling. Ik heb geen idee hoe ik het met JS moet oplossen, dus heb ik bij de cursor "wait" gezet om de gebruiker te laten denken dat ze niet kunnen klikken en moeten wachten op de knop.
